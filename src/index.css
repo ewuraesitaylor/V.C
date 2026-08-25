@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-arcade {
+    font-family: 'Press Start 2P', monospace;
+  }
+  .font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+  }
+  .font-rajdhani {
+    font-family: 'Rajdhani', sans-serif;
+  }
+
+  .text-glow-pink {
+    text-shadow: 0 0 8px rgba(255, 0, 127, 0.8), 0 0 20px rgba(255, 0, 127, 0.5);
+  }
+  .text-glow-cyan {
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.8), 0 0 20px rgba(0, 240, 255, 0.5);
+  }
+  .text-glow-yellow {
+    text-shadow: 0 0 8px rgba(255, 230, 0, 0.8), 0 0 20px rgba(255, 210, 0, 0.5);
+  }
+  .box-glow-pink {
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.5), inset 0 0 10px rgba(255, 0, 127, 0.2);
+  }
+  .box-glow-purple {
+    box-shadow: 0 0 20px rgba(157, 0, 255, 0.6), inset 0 0 15px rgba(157, 0, 255, 0.3);
+  }
+  .box-glow-cyan {
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.5), inset 0 0 10px rgba(0, 240, 255, 0.2);
+  }
+
+  .crt-overlay {
+    background: linear-gradient(
+      rgba(18, 16, 16, 0) 50%, 
+      rgba(0, 0, 0, 0.25) 50%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+  }
+
+  .crt-screen {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .crt-screen::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.35) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    z-index: 20;
+    background-size: 100% 3px, 6px 100%;
+    pointer-events: none;
+  }
+}
+
+@keyframes grid-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 40px;
+  }
+}
+
+.synth-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 0, 127, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(157, 0, 255, 0.25) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: grid-move 2s linear infinite;
+}
+
+/* Retro Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0b001a;
+}
+::-webkit-scrollbar-thumb {
+  background: #9d00ff;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff007f;
+}
+
